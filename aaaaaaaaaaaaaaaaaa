@@ -1,0 +1,44 @@
+int menuVerificar()
+{
+  int op;
+  char t;
+  op = 1;
+  menuVer(op);
+  do
+  {
+    t = getch();
+    if (t <= 0)
+    {
+      t = getch();
+      if (t == baixo)
+      {
+        if (op != 5)
+          op++;
+        else
+          op = 1;
+        menuVer(op);
+      }
+      else if (t == cima)
+      {
+        if (op != 1)
+          op--;
+        else
+          op = 5;
+        menuVer(op);
+      }
+      else if (t == f1)
+      {
+        system("cls");
+        ajuda1();
+        op = 9;
+      }
+    }
+    else if (t == enter)
+    {
+      system("cls");
+      return op;
+    }
+  } while (t != esc);
+  system("cls");
+  return -1; 
+}
